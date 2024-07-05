@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
+import {MatIcon} from "@angular/material/icon";
+import {MatButton} from "@angular/material/button";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
 
 @Component({
   selector: 'app-list',
   standalone: true,
   imports: [
-    FormsModule,CommonModule
+    FormsModule, CommonModule, MatIcon, MatButton, MatLabel, MatFormField
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
@@ -37,4 +40,5 @@ export class ListComponent {
       this.items[index].done = !currentState;
     }
   }
+  protected readonly MatIcon = MatIcon;
 }
