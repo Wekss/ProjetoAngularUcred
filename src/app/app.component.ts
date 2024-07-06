@@ -15,12 +15,12 @@ import { SharedModule } from './shared/shared.module';
 
   template: `
 
-    <div class="theme-dark">
+
       <app-header></app-header>
       <app-template-binding></app-template-binding>
       <app-list></app-list>
 
-    </div>
+
   `,
 })
 export class AppComponent {}
