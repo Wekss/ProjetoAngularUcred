@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
-import {FormsModule} from "@angular/forms";
-import {CommonModule} from "@angular/common";
-import {MatIcon} from "@angular/material/icon";
-import {MatButton} from "@angular/material/button";
-import {MatFormField, MatLabel} from "@angular/material/form-field";
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
+import { MatIcon } from "@angular/material/icon";
+import { MatButton } from "@angular/material/button";
+import { MatFormField, MatLabel } from "@angular/material/form-field";
+import {LocalStorageService} from "../../local-storage.service"; // ajusta o caminho do local storage.ts
+
 
 @Component({
   selector: 'app-list',
@@ -12,33 +14,58 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
     FormsModule, CommonModule, MatIcon, MatButton, MatLabel, MatFormField
   ],
   templateUrl: './list.component.html',
-  styleUrl: './list.component.scss'
+  styleUrls: ['./list.component.scss']
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
   items: { id: number, name: string, done: boolean }[] = [];
   id: number = 1;
   taskInput: string = "";
 
-  addItem = () => {
+  constructor(private localStorageService: LocalStorageService) { }
+
+  ngOnInit() {
+    this.loadItemsFromLocalStorage();
+  }
+
+  addItem = () => { //adiciona item
     this.items.push({
       id: this.id,
       name: this.taskInput,
       done: false
-    })
-    this.taskInput = ""
-    this.id++
+    });
+    this.taskInput = "";
+    this.id++;
+    this.saveItemsToLocalStorage(); //salva itens na memoria do navegador
   }
-  getItems(done:boolean){
-    return this.items.filter(item=> item.done === done);
+deleteItem(id:number) { //deleta o item pelo id
+  this.items = this.items.filter(item => item.id !== id);
+  this.saveItemsToLocalStorage();
+}
+  getItems(done: boolean) { //recupera item
+    return this.items.filter(item => item.done === done);
   }
 
-  setDone = (id:number) => {
-    const index = this.items.findIndex(item => item.id ===id);
+  setDone = (id: number) => { //seta se esta feito
+    const index = this.items.findIndex(item => item.id === id);
 
-    if(index !==-1){
+    if (index !== -1) {
       const currentState = this.items[index].done;
       this.items[index].done = !currentState;
+      this.saveItemsToLocalStorage();
     }
   }
+
+  saveItemsToLocalStorage() { //salva no localstorage, memoria do navegador
+    this.localStorageService.saveData('items', JSON.stringify(this.items));
+  }
+
+  loadItemsFromLocalStorage() { //carrega items do local storage
+    const storedItems = this.localStorageService.getData('items');
+    if (storedItems) {
+      this.items = JSON.parse(storedItems);
+      this.id = this.items.length > 0 ? Math.max(...this.items.map(item => item.id)) + 1 : 1;
+    }
+  }
+
   protected readonly MatIcon = MatIcon;
 }

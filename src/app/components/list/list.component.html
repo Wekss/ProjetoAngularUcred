@@ -22,11 +22,11 @@
           <h3>A Fazer</h3>
           <ul class="list">
             <li *ngFor="let item of getItems(false)">
+              {{ item.name }}
               <label for="checkbox-{{item.id}}" class="form-check-label">
                 <input id="checkbox-{{item.id}}" class="form-check-input"
-                       type="checkbox" value="{{item.done}}" [checked]="item.done"
+                       type="checkbox" value="{{item.done}}" [checked]="item.done"/> <!-- botão de excluir-->
                        (click)="setDone(item.id)"/>
-                {{ item.name }}
               </label>
             </li>
           </ul>
@@ -36,11 +36,14 @@
           <h3>Feito</h3>
           <ul class="list">
             <li *ngFor="let item of getItems(true)">
+              {{ item.name }}
               <label for="checkbox-{{item.id}}" class="form-check-label">
                 <input id="checkbox-{{item.id}}" class="form-check-input"
                        type="checkbox" value="{{item.done}}" [checked]="item.done"
                        (click)="setDone(item.id)"/>
-                {{ item.name }}
+                <button mat-button *ngIf="item.done" matSuffix mat-icon-button aria-label="Clear" (click)="deleteItem(item.id)">
+                  <mat-icon>close</mat-icon>
+                </button>
               </label>
             </li>
           </ul>
