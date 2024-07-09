@@ -6,7 +6,7 @@ import {TemplateBindingComponent} from "./components/template-binding/template-b
 import {HeaderComponent} from "./components/header/header.component";
 import {ListComponent} from "./components/list/list.component";
 import { SharedModule } from './shared/shared.module';
-
+import {LocalStorageService} from "./local-storage.service";
 
 @Component({
   selector: 'app-root',
@@ -23,4 +23,7 @@ import { SharedModule } from './shared/shared.module';
 
   `,
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(private localStore:LocalStorageService) {
+  }
+}
