@@ -25,8 +25,8 @@
               {{ item.name }}
               <label for="checkbox-{{item.id}}" class="form-check-label">
                 <input id="checkbox-{{item.id}}" class="form-check-input"
-                       type="checkbox" value="{{item.done}}" [checked]="item.done"/> <!-- botão de excluir-->
-                       (click)="setDone(item.id)"/>
+                       type="checkbox" value="{{item.done}}" [checked]="item.done"
+                       (click)="setDone(item.id)"/> <!-- botão de excluir-->
               </label>
             </li>
           </ul>
@@ -37,14 +37,13 @@
           <ul class="list">
             <li *ngFor="let item of getItems(true)">
               {{ item.name }}
-              <label for="checkbox-{{item.id}}" class="form-check-label">
-                <input id="checkbox-{{item.id}}" class="form-check-input"
-                       type="checkbox" value="{{item.done}}" [checked]="item.done"
-                       (click)="setDone(item.id)"/>
-                <button mat-button *ngIf="item.done" matSuffix mat-icon-button aria-label="Clear" (click)="deleteItem(item.id)">
-                  <mat-icon>close</mat-icon>
-                </button>
-              </label>
+              <mat-checkbox  id="checkbox-{{item.id}}" [checked]="item.done" (change)="setDone(item.id)">
+                <label for="checkbox-{{item.id}}" class="form-check-label">
+                </label>
+              </mat-checkbox>
+              <button *ngIf="item.done" matSuffix mat-icon-button aria-label="Clear" (click)="deleteItem(item.id)">
+                <mat-icon>close</mat-icon>
+              </button>
             </li>
           </ul>
         </div>
