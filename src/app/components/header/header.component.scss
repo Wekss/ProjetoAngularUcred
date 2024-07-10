@@ -1,0 +1,13 @@
+.menu-button{
+  color: #333; /* cor da letra */
+  background-color: white; /* Adiciona uma cor de fundo para contraste */
+  border: none; /* Remove a borda padrão */
+  padding: 10px 20px; /* Adiciona um pouco de espaçamento interno */
+  cursor: pointer; /* Muda o cursor para um ponteiro ao passar sobre o botão */
+  transition: background-color 0.3s, color 0.3s; /* Adiciona uma transição */
+}
+
+.menu-button:hover {
+  background-color: #555; /* Muda a cor de fundo quando passa o mouse */
+  color: #ddd; /* Muda a cor da letra */
+}

@@ -1,2 +1,12 @@
-<h1>Projeto Angular Ucred</h1>
-
+<div class="menu">
+<button class="menu-button" mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+<button class="menu-button" mat-button [matMenuTriggerFor]="menu">Enviar Foto</button>
+<button class="menu-button" mat-button [matMenuTriggerFor]="menu">Teste</button>
+<button class="menu-button" mat-button [matMenuTriggerFor]="menu">Apps</button>
+<!-- #enddocregion mat-menu-trigger-for -->
+<mat-menu #menu="matMenu">
+  <button class="menu-button" mat-menu-item>Item 1</button>
+  <button class="menu-button" mat-menu-item>Item 2</button>
+</mat-menu>
+</div>
