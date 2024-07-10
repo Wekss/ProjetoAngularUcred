@@ -1,5 +1,3 @@
-
-
 .material-symbols-outlined {
   font-variation-settings:
     'FILL' 0,
@@ -33,7 +31,20 @@
 
 }
 
-.mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {
-  border-color: var(--mdc-checkbox-selected-icon-color);
-  background-color: black;
+.close {
+  -webkit-user-select: none;
+  user-select: none;
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 19px;
+  width: 24px;
+  overflow: hidden;
+  transition: background-color 0.3s, fill 0.3s , border-radius 0.3s;
+}
+
+.close:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  fill: currentColor;
+  border-radius: 50%;
 }
