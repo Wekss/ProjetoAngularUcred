@@ -1,15 +1,14 @@
 .material-symbols-outlined {
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24
+  font-variation-settings: 'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
 
 }
 
 .container {
   width: 600px;
-  margin:  auto;
+  margin: auto;
   background-color: #83D5DA;
   text-align: center;
   padding: 20px 50px;
@@ -17,17 +16,16 @@
 
 }
 
-.li{
+.li {
   margin-top: 5px;
   border: 1px solid #bbb;
   padding: 5px 10px;
 }
 
-.body{
+.body {
   background-color: dodgerblue;
-  margin-top: 5px;
+  margin-top: 35px;
   border: 1px solid #bbb;
-
 
 }
 
@@ -40,7 +38,7 @@
   height: 19px;
   width: 24px;
   overflow: hidden;
-  transition: background-color 0.3s, fill 0.3s , border-radius 0.3s;
+  transition: background-color 0.3s, fill 0.3s, border-radius 0.3s;
 }
 
 .close:hover {
@@ -48,3 +46,10 @@
   fill: currentColor;
   border-radius: 50%;
 }
+
+div.fixed {
+  position: fixed; /*Desabilita scroll da pagina*/
+  top: 0;
+  left: 0;
+}
+
