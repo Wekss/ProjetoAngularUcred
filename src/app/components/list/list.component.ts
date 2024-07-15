@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
-import { MatIcon } from "@angular/material/icon";
-import {MatButton, MatIconButton} from "@angular/material/button";
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {FormsModule} from "@angular/forms";
+import {CommonModule} from "@angular/common";
+import {MatIcon} from "@angular/material/icon";
+import {MatButton, MatButtonModule, MatIconButton} from "@angular/material/button";
 import {MatFormField, MatLabel, MatSuffix} from "@angular/material/form-field";
 import {LocalStorageService} from "../../local-storage.service"; // ajusta o caminho do local storage.ts
 import {MatCheckboxModule} from "@angular/material/checkbox";
-
 
 @Component({
   selector: 'app-list',
   standalone: true,
   imports: [
-    FormsModule, CommonModule, MatIcon, MatButton, MatLabel, MatFormField, MatIconButton, MatSuffix, MatCheckboxModule
+    FormsModule, CommonModule, MatIcon, MatButton, MatLabel, MatFormField, MatIconButton, MatSuffix, MatCheckboxModule, MatButtonModule
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
@@ -70,3 +70,4 @@ deleteItem(id:number) { //deleta o item pelo id
 
   protected readonly MatIcon = MatIcon;
 }
+
