@@ -3,6 +3,17 @@
   gap: 10px; /* Espaço entre os botões */
 }
 
+.menuapps{
+  display: flex;/* Coloca os botões em uma coluna */
+  gap: 10px; /* Espaço entre os botões */
+}
+.menu-button{
+  display: flex;/* Coloca os botões em uma coluna */
+  gap: 10px; /* Espaço entre os botões */
+}
+
+
+
 .menu-button {
   display: flex;
   align-items: center;

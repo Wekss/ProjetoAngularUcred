@@ -1,18 +1,29 @@
 <div class="menu">
-  <button class="menu-button" mat-button [matMenuTriggerFor]="menu">
-    <span class="material-symbols-outlined">home</span>
-    inicio
-  </button>
-  <button class="menu-button" mat-button [matMenuTriggerFor]="menu">
-  <span class="material-symbols-outlined">photo_camera</span>
+  <div class="menu-section">
+    <button class="menu-button" mat-button>
+      <span class="material-symbols-outlined">home</span>
+      Início
+    </button>
+  </div>
+  <button class="menu-button" mat-button>
+    <span class="material-symbols-outlined">photo_camera</span>
     Enviar Foto
   </button>
-  <button class="menu-button" mat-button [matMenuTriggerFor]="menu">Teste</button>
-  <button class="menu-button" mat-button [matMenuTriggerFor]="menu">
-    <span class="material-symbols-outlined">grid_view</span>Apps</button>
-  <!-- #enddocregion mat-menu-trigger-for -->
-  <mat-menu #menu="matMenu">
-    <button class="menu-button" mat-menu-item>Item 1</button>
-    <button class="menu-button" mat-menu-item>Item 2</button>
-  </mat-menu>
+  <div class="menu-section">
+    <button class="menu-button" mat-button [matMenuTriggerFor]="menu">Botão Menu</button>
+    <mat-menu #menu="matMenu">
+      <button class="menu-button" mat-menu-item>Item 1</button>
+      <button class="menu-button" mat-menu-item>Item 2</button>
+    </mat-menu>
+  </div>
+  <div class="menu-section">
+    <button class="menu-button" mat-button [matMenuTriggerFor]="menuapps">
+      <span class="material-symbols-outlined">grid_view</span>
+      Apps
+    </button>
+    <mat-menu #menuapps="matMenu">
+      <button class="menu-button" mat-menu-item>App Item 1</button>
+      <button class="menu-button" mat-menu-item>App Item 2</button>
+    </mat-menu>
+  </div>
 </div>
