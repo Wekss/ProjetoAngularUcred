@@ -10,7 +10,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './dialog-component.component.scss'
 })
 export class DialogComponentComponent {
-  constructor(public dialogRef: MatDialogRef<DialogComponentComponent>) {}
+  showConfirmation:boolean = true;
+  constructor(public dialogRef: MatDialogRef<DialogComponentComponent>
+  ) {}
 
   onConfirm(): void {
     this.dialogRef.close('confirm');
@@ -19,4 +21,15 @@ export class DialogComponentComponent {
   onCancel(): void {
     this.dialogRef.close('cancel');
   }
+   onDone() {
+    this.dialogRef.close('confirm');
+  }
+
+  protected readonly confirm = confirm;
 }
+
+
+
+
+
+
