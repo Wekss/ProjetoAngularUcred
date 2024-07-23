@@ -29,7 +29,7 @@
 
 }
 
-.close {
+.close, .confirm-done {
   -webkit-user-select: none;
   user-select: none;
   background-repeat: no-repeat;
@@ -41,11 +41,13 @@
   transition: background-color 0.3s, fill 0.3s, border-radius 0.3s;
 }
 
-.close:hover {
+.close:hover, .confirm-done:hover {
   background-color: rgba(0, 0, 0, 0.05);
   fill: currentColor;
   border-radius: 50%;
 }
+
+
 
 div.fixed {
   position: fixed; /*Desabilita scroll da pagina*/
@@ -53,3 +55,6 @@ div.fixed {
   left: 0;
 }
 
+p{
+  text-decoration: line-through;
+}

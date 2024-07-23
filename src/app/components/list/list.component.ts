@@ -8,6 +8,7 @@ import { LocalStorageService } from "../../local-storage.service"; // ajusta o c
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { DialogComponentComponent } from "../dialog-component/dialog-component.component";
 import { MatDialog, MatDialogModule } from "@angular/material/dialog";
+import {DialogConfirmComponent} from "../dialog-confirm/dialog-confirm.component";
 
 @Component({
   selector: 'app-list',
@@ -19,10 +20,11 @@ import { MatDialog, MatDialogModule } from "@angular/material/dialog";
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit { //variaveis
   items: { id: number, name: string, done: boolean }[] = [];
   id: number = 1;
   taskInput: string = "";
+
 
   constructor(private localStorageService: LocalStorageService, private dialog: MatDialog) { }
 
@@ -46,13 +48,12 @@ export class ListComponent implements OnInit {
     this.saveItemsToLocalStorage();
   }
 
-  getItems(done: boolean) { //recupera item
-    return this.items.filter(item => item.done === done);
+  getItems(showDone: boolean) {
+    return this.items.filter(item => item.done === showDone); // Filtra os itens com base no estado de conclusão
   }
 
-  setDone = (id: number) => { //seta se esta feito
+  setDone = (id: number) => {
     const index = this.items.findIndex(item => item.id === id);
-
     if (index !== -1) {
       const currentState = this.items[index].done;
       this.items[index].done = !currentState;
@@ -60,8 +61,9 @@ export class ListComponent implements OnInit {
     }
   }
 
+
   confirmDelete(id: number): void {
-    const dialogRef = this.dialog.open(DialogComponentComponent);
+    const dialogRef = this.dialog.open(DialogComponentComponent); // component de confirmação de exclusão
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'confirm') {
         this.deleteItem(id);
@@ -69,9 +71,24 @@ export class ListComponent implements OnInit {
     });
   }
 
+  confirmDone(id: number): void {
+    const item = this.items.find(item => item.id === id);
+    if (item) {
+      const dialogRef = this.dialog.open(DialogConfirmComponent, {
+        data: { message: item.done ? 'Deseja marcar como não concluído?' : 'Deseja marcar como concluído?' }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === 'confirmdone') {
+          this.setDone(id);
+        }
+      });
+    }
+  }
+
   saveItemsToLocalStorage() { //salva no localstorage, memoria do navegador
     this.localStorageService.saveData('items', JSON.stringify(this.items));
   }
+
 
   loadItemsFromLocalStorage() { //carrega items do local storage
     const storedItems = this.localStorageService.getData('items');
@@ -83,3 +100,4 @@ export class ListComponent implements OnInit {
 
   protected readonly MatIcon = MatIcon;
 }
+
