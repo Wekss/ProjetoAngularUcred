@@ -9,6 +9,7 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { DialogComponentComponent } from "../dialog-component/dialog-component.component";
 import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import {DialogConfirmComponent} from "../dialog-confirm/dialog-confirm.component";
+import {DialogUndoComponent} from "../dialog-undo/dialog-undo.component";
 
 @Component({
   selector: 'app-list',
@@ -74,7 +75,7 @@ export class ListComponent implements OnInit { //variaveis
   confirmDone(id: number): void {
     const item = this.items.find(item => item.id === id);
     if (item) {
-      const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      const dialogRef = this.dialog.open(DialogUndoComponent, {
         data: { message: item.done ? 'Deseja marcar como não concluído?' : 'Deseja marcar como concluído?' }
       });
       dialogRef.afterClosed().subscribe(result => {
