@@ -24,7 +24,7 @@
           <ul class="list">
             <li *ngFor="let item of getItems(false)">
               {{ item.name }}
-              <mat-checkbox (click)="confirmDone(item.id)">
+              <mat-checkbox (click)="setDone(item.id)">
                 <label for="checkbox-{{item.id}}" class="form-check-label">
                 </label>
               </mat-checkbox>
@@ -40,7 +40,7 @@
           <ul class="list">
             <li *ngFor="let item of getItems(true)">
               <p>{{ item.name }}</p>
-              <button class="confirm-done" (click)="confirmDone(item.id)">
+              <button class="confirm-done" (click)="undoConfirm(item.id)">
                 <span class="material-symbols-outlined">undo</span>
               </button>
               <button class="close" (click)="confirmDelete(item.id)"> <!-- botão de excluir-->

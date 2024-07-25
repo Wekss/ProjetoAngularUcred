@@ -26,4 +26,8 @@ import {LocalStorageService} from "./local-storage.service";
 export class AppComponent {
   constructor(private localStore:LocalStorageService) {
   }
+
 }
+
+
+
