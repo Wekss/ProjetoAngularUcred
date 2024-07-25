@@ -100,5 +100,19 @@ export class ListComponent implements OnInit { //variaveis
   }
 
   protected readonly MatIcon = MatIcon;
+
+  undoConfirm(id: number) {
+    const item = this.items.find(item => item.id === id);
+    if (item) {
+      const dialogRef = this.dialog.open(DialogUndoComponent, {
+        data: { message: item.done ? 'Deseja marcar como não concluído?' : 'Deseja marcar como concluído?' }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === 'confirmundo') {
+          this.setDone(id);
+        }
+      });
+    }
+  }
 }
 
