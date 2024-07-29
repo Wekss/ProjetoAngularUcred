@@ -24,7 +24,7 @@
           <ul class="list">
             <li *ngFor="let item of getItems(false)">
               {{ item.name }}
-              <mat-checkbox (click)="setDone(item.id)">
+              <mat-checkbox (click)="confirmDone(item.id)">
                 <label for="checkbox-{{item.id}}" class="form-check-label">
                 </label>
               </mat-checkbox>
