@@ -75,7 +75,7 @@ export class ListComponent implements OnInit { //variaveis
   confirmDone(id: number): void {
     const item = this.items.find(item => item.id === id);
     if (item) {
-      const dialogRef = this.dialog.open(DialogUndoComponent, {
+      const dialogRef = this.dialog.open(DialogConfirmComponent, {
         data: { message: item.done ? 'Deseja marcar como não concluído?' : 'Deseja marcar como concluído?' }
       });
       dialogRef.afterClosed().subscribe(result => {
