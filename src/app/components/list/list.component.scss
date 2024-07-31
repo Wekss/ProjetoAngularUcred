@@ -39,6 +39,7 @@
   width: 24px;
   overflow: hidden;
   transition: background-color 0.3s, fill 0.3s, border-radius 0.3s;
+  margin-right: 8px;
 }
 
 .close:hover, .confirm-done:hover {
@@ -57,4 +58,9 @@ div.fixed {
 
 p{
   text-decoration: line-through;
+  display:inline-block;
+  margin-right: 8px;
 }
+
+
+
