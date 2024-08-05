@@ -10,12 +10,13 @@ import { DialogComponentComponent } from "../dialog-component/dialog-component.c
 import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import {DialogConfirmComponent} from "../dialog-confirm/dialog-confirm.component";
 import {DialogUndoComponent} from "../dialog-undo/dialog-undo.component";
+import {ImageSliderComponent} from "../image-slider/image-slider.component";
 
 @Component({
   selector: 'app-list',
   standalone: true,
   imports: [
-    FormsModule, CommonModule, MatIcon, MatButton, MatLabel, MatFormField, MatIconButton, MatSuffix, MatCheckboxModule, MatButtonModule, MatDialogModule
+    FormsModule, CommonModule, MatIcon, MatButton, MatLabel, MatFormField, MatIconButton, MatSuffix, MatCheckboxModule, MatButtonModule, MatDialogModule, ImageSliderComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './list.component.html',
@@ -100,6 +101,11 @@ export class ListComponent implements OnInit { //variaveis
   }
 
   protected readonly MatIcon = MatIcon;
+  slides = [
+    { url: 'https://cdn.pixabay.com/photo/2016/03/31/19/50/checklist-1295319_1280.png', caption: 'First Slide' },
+    { url: 'https://cdn.pixabay.com/photo/2016/03/31/19/50/checklist-1295319_1280.png', caption: 'Second Slide' },
+    { url: 'https://cdn.pixabay.com/photo/2016/03/31/19/50/checklist-1295319_1280.png', caption: 'Third Slide' }
+  ];
 
   undoConfirm(id: number) {
     const item = this.items.find(item => item.id === id);
