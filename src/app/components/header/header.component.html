@@ -5,10 +5,14 @@
       Início
     </button>
   </div>
-  <button class="menu-button" mat-button>
+  <button class="menu-button" mat-button (click)="fileInput.click()">
     <span class="material-symbols-outlined">photo_camera</span>
     Enviar Foto
   </button>
+  <input type="file" class="file-upload" #fileInput style="display: none;" onchange="console.log(event.target.files)">
+
+
+
   <div class="menu-section">
     <button class="menu-button" mat-button [matMenuTriggerFor]="menu">Botão Menu</button>
     <mat-menu #menu="matMenu">
