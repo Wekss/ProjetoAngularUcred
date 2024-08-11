@@ -1,5 +1,5 @@
-<div class="relative w-full max-w-4xl mx-auto">
-  <div class="overflow-hidden relative h-64">
+<div class="relative w-full max-w-6xl mx-auto">
+  <div class="overflow-hidden relative h-96">
     <div class="absolute inset-0 flex transition-transform duration-500" [ngStyle]="{'transform': 'translateX(' + currentSlide * -100 + '%)'}">
       <div *ngFor="let slide of slides" class="w-full flex-shrink-0">
         <img [src]="slide.image" [alt]="slide.caption" class="w-full h-full object-cover">
@@ -8,11 +8,11 @@
   </div>
 
   <div class="absolute top-0 left-0 w-full h-full flex items-center justify-between">
-    <button (click)="prevSlide()" class="bg-gray-800 bg-opacity-50 text-white p-2">‹</button>
-    <button (click)="nextSlide()" class="bg-gray-800 bg-opacity-50 text-white p-2">›</button>
+    <button (click)="prevSlide()" class="bg-gray-800 bg-opacity-50 text-white p-4">‹</button>
+    <button (click)="nextSlide()" class="bg-gray-800 bg-opacity-50 text-white p-4">›</button>
   </div>
   <div class="absolute bottom-0 left-0 w-full flex justify-center space-x-2">
     <button *ngFor="let slide of slides; let i = index" (click)="goToSlide(i)"
-            [class.bg-blue-600]="currentSlide === i" class="bg-gray-400 w-2 h-2 rounded-full"></button>
+            [class.bg-blue-600]="currentSlide === i" class="bg-gray-400 w-4 h-4 rounded-full"></button>
   </div>
 </div>
