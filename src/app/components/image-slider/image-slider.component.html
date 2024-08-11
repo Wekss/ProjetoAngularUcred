@@ -2,7 +2,7 @@
   <div class="overflow-hidden relative h-64">
     <div class="absolute inset-0 flex transition-transform duration-500" [ngStyle]="{'transform': 'translateX(' + currentSlide * -100 + '%)'}">
       <div *ngFor="let slide of slides" class="w-full flex-shrink-0">
-        <img [src]="slide.url" [alt]="slide.caption" class="w-full h-full object-cover">
+        <img [src]="slide.image" [alt]="slide.caption" class="w-full h-full object-cover">
       </div>
     </div>
   </div>
@@ -11,7 +11,6 @@
     <button (click)="prevSlide()" class="bg-gray-800 bg-opacity-50 text-white p-2">‹</button>
     <button (click)="nextSlide()" class="bg-gray-800 bg-opacity-50 text-white p-2">›</button>
   </div>
-
   <div class="absolute bottom-0 left-0 w-full flex justify-center space-x-2">
     <button *ngFor="let slide of slides; let i = index" (click)="goToSlide(i)"
             [class.bg-blue-600]="currentSlide === i" class="bg-gray-400 w-2 h-2 rounded-full"></button>
