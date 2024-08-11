@@ -7,25 +7,45 @@
 .carousel-inner {
   display: flex;
   transition: transform 0.5s ease;
+  width: 100%;
 }
 
 .carousel-item {
-  min-width: 100%;
+  flex: 0 0 100%; /* Faz com que cada item ocupe 100% do contêiner */
+  height: 70vh; /* Ajusta a altura do item do carrossel para 70% da altura da visualização */
+  /* Altere para outro valor se desejar uma altura diferente */
 }
 
+img {
+  width: 100%; /* Ajuste a largura conforme necessário */
+  max-width: 1200px; /* Defina um valor máximo para a largura */
+  height: 800px; /* Ajuste a altura conforme necessário */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Indicadores e outros estilos permanecem inalterados */
 .carousel-indicators {
+  position: absolute;
+  bottom: 10px; /* Ajusta a posição dos indicadores */
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
   gap: 0.5rem;
+  z-index: 10; /* Garante que os indicadores fiquem sobrepostos às imagens */
 }
 
 .carousel-indicator {
-  width: 10px;
-  height: 10px;
+  width: 12px; /* Aumenta o tamanho dos indicadores */
+  height: 12px;
   background-color: gray;
   border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Adiciona uma transição suave */
 }
 
 .carousel-indicator.active {
   background-color: blue;
 }
+

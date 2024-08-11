@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgForOf, NgStyle} from "@angular/common";
 
 @Component({
@@ -11,9 +11,13 @@ import {NgForOf, NgStyle} from "@angular/common";
   templateUrl: './image-slider.component.html',
   styleUrl: './image-slider.component.scss'
 })
-export class ImageSliderComponent {
-  @Input() slides: { url: string, caption?: string }[] = [];
+export class ImageSliderComponent implements OnInit {
+  @Input() slides: Array<{ image: string, caption: string }> = [];
   currentSlide: number = 0;
+
+  ngOnInit() {
+    // Não é necessário carregar imagem aqui, pois já é feito no list.component
+  }
 
   prevSlide() {
     this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
@@ -25,6 +29,5 @@ export class ImageSliderComponent {
 
   goToSlide(index: number) {
     this.currentSlide = index;
-
   }
 }
