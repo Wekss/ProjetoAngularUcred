@@ -18,6 +18,9 @@ export class ImageSliderComponent implements OnInit {
   ngOnInit() {
     // Não é necessário carregar imagem aqui, pois já é feito no list.component
   }
+  addImageToSlides(imageUrl: string, caption: string = 'Nova Imagem') {
+    this.slides.push({ image: imageUrl, caption: caption });
+  }
 
   prevSlide() {
     this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;

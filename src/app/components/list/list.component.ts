@@ -50,7 +50,7 @@ export class ListComponent implements OnInit {
         const images = JSON.parse(storedImages) as string[];
         this.slides = images.map(image => ({ image, caption: 'Imagem carregada' }));
       } catch (error) {
-        console.error('Erro ao parsear imagens do localStorage', error);
+        console.error('Erro ao carregar imagens do localStorage', error);
       }
     }
   }
@@ -124,4 +124,5 @@ export class ListComponent implements OnInit {
       });
     }
   }
+
 }
