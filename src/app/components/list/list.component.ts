@@ -33,6 +33,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.loadItemsFromLocalStorage(); // Carrega os itens do localStorage
     this.loadImagesFromLocalStorage(); // Carrega as imagens do localStorage
+
   }
 
   loadItemsFromLocalStorage() {
@@ -124,5 +125,4 @@ export class ListComponent implements OnInit {
       });
     }
   }
-
 }
