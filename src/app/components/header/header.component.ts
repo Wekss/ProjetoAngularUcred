@@ -17,7 +17,7 @@ import {MatIconModule} from '@angular/material/icon';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  private imageSlider: any;
+
 
   handleFileInput(event: any) {
     const files = event.target.files;
@@ -31,6 +31,7 @@ export class HeaderComponent {
     // Carrega imagens já armazenadas no localStorage
     const storedImages = localStorage.getItem('uploadedImages');
     const existingImages = storedImages ? JSON.parse(storedImages) as string[] : [];
+    window.location.reload(); // Autorefresh na pagina
 
     let filesRead = 0;
 
@@ -43,12 +44,13 @@ export class HeaderComponent {
           // Adiciona novas imagens ao array existente
           const updatedImages = existingImages.concat(images);
 
-          // Armazena todas as imagens no localStorage
+          // Armazena as imagens no localStorage
           localStorage.setItem('uploadedImages', JSON.stringify(updatedImages));
 
-          // Adiciona as imagens ao array de slides no ImageSliderComponent
-          images.forEach(image => this.imageSlider.addImageToSlides(image));
+
+          //images.forEach(image => this.imageSlider.addImageToSlides(image));
         }
+
       };
       reader.readAsDataURL(file);
     };
